@@ -1,0 +1,30 @@
+### like a sample test Client (Browser)
+http://localhost:4004/odata/v4/MyServices/def(name = 'Mionon')
+
+### Consume the service Docuemnt 
+http://localhost:4004/odata/v4/CatalogeService
+
+### 
+http://localhost:4004/odata/v4/CatalogeService/$metadata
+
+### 
+http://localhost:4004/odata/v4/CatalogeService/Employeset
+
+
+### $select - to bring down the volum of data  
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$select=ID,nameFirst,nameMiddle,sex
+
+### $count
+http://localhost:4004/odata/v4/CatalogeService/Employeset/$count
+
+### paginagtion - $top - Susane record came 
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$top=1
+
+### paginagtion - $top & $Skip  - Susane skip 
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$top=2&$skip=2
+
+
+### select upto m ROWS 
+http://localhost:4004/odata/v4/CatalogeService/Employeset/02BD2137-0890-1EEA-A6C2-BB55C197E7FB
+
+ 
