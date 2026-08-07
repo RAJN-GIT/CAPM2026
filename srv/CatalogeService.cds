@@ -6,4 +6,3 @@ service CatalogeService @(path: 'CatalogeService')
     entity Employeset as projection on master.employees
     
 }
-git
