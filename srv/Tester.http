@@ -1,3 +1,7 @@
+### Get Operation 
+### https://www.odata.org/documentation/
+# https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html
+
 ### like a sample test Client (Browser)
 http://localhost:4004/odata/v4/MyServices/def(name = 'Mionon')
 
@@ -27,4 +31,69 @@ http://localhost:4004/odata/v4/CatalogeService/Employeset?$top=2&$skip=2
 ### select upto m ROWS 
 http://localhost:4004/odata/v4/CatalogeService/Employeset/02BD2137-0890-1EEA-A6C2-BB55C197E7FB
 
- 
+ ### fileter data based on pattern  - not working
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$filter=contains(nameFirst,'Sa')
+
+
+### My Bank of Antioch
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$filter=bankName eq 'My Bank of Antioch'
+###
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$filter=bankName eq 'My Bank of Antioch'&$top=2
+
+### Order by 
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$orderby=salaryAmount desc&top=4
+
+### 
+http://localhost:4004/odata/v4/CatalogeService/Purchaseorder/74867AD200E41EDBA5D8B0C98DC28052
+
+
+### 
+http://localhost:4004/odata/v4/CatalogeService/Purchaseorder/74867AD200E41EDBA5D8B0C98DC28052/items
+
+### 
+http://localhost:4004/odata/v4/CatalogeService/Purchaseorder/74867AD200E41EDBA5D8B0C98DC28052/items?&$top=2
+
+### PO+ POITEM Togther
+http://localhost:4004/odata/v4/CatalogeService/Purchaseorder/74867AD200E41EDBA5D8B0C98DC28052?&$expand=items
+
+
+### PO+ POITEM Togther
+http://localhost:4004/odata/v4/CatalogeService/Purchaseorder/74867AD200E41EDBA5D8B0C98DC28052?&$expand=items&($filter=NET_AMOUNT eq 130)
+
+### Create Operation
+POST http://localhost:4004/odata/v4/CatalogeService/Employeset
+Content-Type: application/json
+
+{
+      "nameFirst": "nooAugust",
+      "nameMiddle": null,
+      "nameLast": "Spring",
+      "nameInitials": null,
+      "sex": "F",
+      "language": "E",
+      "phoneNumber": "1234567890",
+      "email": "sally.spring@itelo.info",
+      "loginName": "SPRINGS",
+      "Currency_code": "USD",
+      "salaryAmount": 55549,
+      "accountNumber": "111222333",
+      "bankId": "515122",
+      "bankName": "My Bank of Antioch"
+    }
+
+
+### Get - new record 
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$filter=nameFirst='nooAugust'
+
+### Update salary data of newly created data - update record 
+http://localhost:4004/odata/v4/CatalogeService/Employeset?$filter=nameFirst='nooAugust'
+
+### patch 
+PATCH  http://localhost:4004/odata/v4/CatalogeService/Employeset/667a64aa-f35c-4d37-8675-1e0711b88853
+Content-Type: application/json
+
+{
+      "salaryAmount": 100
+
+}
+
