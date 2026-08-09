@@ -12,5 +12,4 @@ service CatalogeService @(path: 'CatalogeService') {
     entity Purchaseorder   as projection on transaction.purchaseorder;
     entity Poitem          as projection on transaction.poitems;
 
-
 }
