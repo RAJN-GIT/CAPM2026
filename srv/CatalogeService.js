@@ -9,7 +9,7 @@ module.exports = class CatalogeService extends cds.ApplicationService {
       console.log('Before CREATE/UPDATE Employeset', req.data)
 
       let salaryAmount = parseFloat(req.data.salaryAmount);
-      if(salaryAmount > 1000000){
+      if (salaryAmount > 1000000) {
         req.error(500, "Salary is not looking realistic , pls check ");
       }
 
@@ -42,6 +42,24 @@ module.exports = class CatalogeService extends cds.ApplicationService {
       console.log('After READ Poitem', poitem)
     })
 
+    this.on('getLargestOrder', async (req, res) => {
+      try {
+        //standrad way of getting transaction object - very 1st step always 
+        //
+
+        //use CDS QL to make a call to DB - SELECT * UP TO 3 ROWS FROM POs by GROSS_AMOUNT descending
+        //DB agnostics call - can change any database/Postgress/hana db/sqlite . it worl on all 
+        const tx = cds.tx(req);
+        const reply = await tx.read(Purchaseorder).ORDERBY({
+          'GROSS_AMOUNT': 'desc'
+        }).limit(3);
+
+        return reply;
+
+      } catch (error) {
+        req.error(500, "some error occured:", + error.tostring());
+      } 
+    }) 
 
     return super.init()
   }
