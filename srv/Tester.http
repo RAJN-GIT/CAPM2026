@@ -18,11 +18,22 @@ http://localhost:4004/odata/v4/CatalogeService/Employeset
 ### $select - to bring down the volum of data  
 http://localhost:4004/odata/v4/CatalogeService/Employeset?$select=ID,nameFirst,nameMiddle,sex
 
+
+### ODATAV2 - After conversionb from V4 TO V2 - $select - to bring down the volum of data  
+http://localhost:4004/odata/v2/CatalogeService/Employeset?$select=ID,nameFirst,nameMiddle,sex
+
 ### $count
 http://localhost:4004/odata/v4/CatalogeService/Employeset/$count
 
+### ODATAV2 - After conversionb from V4 TO V2 -
+### $count
+http://localhost:4004/odata/v2/CatalogeService/Employeset/$count
+
 ### paginagtion - $top - Susane record came 
 http://localhost:4004/odata/v4/CatalogeService/Employeset?$top=1
+
+### V2 - paginagtion - $top - Susane record came 
+http://localhost:4004/odata/v2/CatalogeService/Employeset?$top=1
 
 ### paginagtion - $top & $Skip  - Susane skip 
 http://localhost:4004/odata/v4/CatalogeService/Employeset?$top=2&$skip=2
@@ -37,6 +48,13 @@ http://localhost:4004/odata/v4/CatalogeService/Employeset?$filter=contains(nameF
 
 ### My Bank of Antioch
 http://localhost:4004/odata/v4/CatalogeService/Employeset?$filter=bankName eq 'My Bank of Antioch'
+
+
+
+### My Bank of Antioch
+http://localhost:4004/odata/v2/CatalogeService/Employeset?$filter=bankName eq 'My Bank of Antioch'
+
+
 ###
 http://localhost:4004/odata/v4/CatalogeService/Employeset?$filter=bankName eq 'My Bank of Antioch'&$top=2
 
@@ -78,7 +96,7 @@ Content-Type: application/json
       "salaryAmount": 55549,
       "accountNumber": "111222333",
       "bankId": "515122",
-      "bankName": "My Bank of Antioch"
+      "bankName": "My Bank of Antioch" 
     }
 
 
@@ -98,6 +116,6 @@ Content-Type: application/json
 }
 
 ### TOP 3 po 
-http://localhost:4004/odata/v4/CatalogeService/Purchaseorder/getLargestOrder()
+http://localhost:4004/odata/v4/CatalogeService/Purchaseorder/
 
 

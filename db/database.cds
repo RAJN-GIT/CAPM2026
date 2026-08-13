@@ -1,31 +1,30 @@
 namespace mycap1.db;
-  
+
 // type Guid: String(32);
 // using {types.common as common} from '../commons';
 
 using {globaldata.common as common} from './commons';
 
 
-using {
-    Currency,
-    cuid
-} from '@sap/cds/common';
+using {     Currency,    cuid} from '@sap/cds/common';
 
 context master {
     entity businesspartner {
         key NODE_KEY      : common.Guid; //Reusabality like adatemlnet in ABAP
             BP_ROLE       : String(2);
             EMAIL_ADDRESS : common.Email;
-            PHONE_NUMBER: common.PhoneNumber;
+            PHONE_NUMBER  : common.PhoneNumber;
             FAX_NUMBER    : String(32);
             WEB_ADDRESS   : String(44);
-            ADDRESS_GUID  : Association to one address;
+                        COMPANY_NAME  : String(250);
+
             BP_ID         : String(2);
-            COMPANY_NAME  : String(250);
+                        ADDRESS_GUID  : Association to one address;
+
     // BY default it will with Address table - Key - NODE KEY
     // Association
-     };
-
+    };
+//Check table 
     entity address {
         key NODE_KEY         : common.Guid;
             CITY             : String(44);
@@ -87,18 +86,25 @@ context master {
             DIM_UNIT       : String(2);
     };
 }
+
 context transaction {
     entity purchaseorder : common.Amount {
         key NODE_KEY         : common.Guid;
             PO_ID            : String(32);
+            //  ,PARTNER_GUID_NODE_KEY
             PARTNER_GUID     : Association to master.businesspartner;
+            // CURRENCY_CODE    : common.AmountT;
+            // GROSS_AMOUNT     : common.AmountT;
+            // NET_AMOUNT       : common.AmountT;
+            // TAX_AMOUNT       : common.AmountT;
             LIFECYCLE_STATUS : String(1);
             OVERALL_STATUS   : String(1);
             NOTE             : String(100);
-            items: Association to many poitems on items.PARENT_KEY = $self;
+            items            : Association to many poitems
+                                   on items.PARENT_KEY = $self;
     };
 
-    entity poitems : common.Amount { 
+    entity poitems : common.Amount {
         key NODE_KEY     : common.Guid;
             PARENT_KEY   : Association to purchaseorder;
             PO_ITEM_POS  : Integer;
