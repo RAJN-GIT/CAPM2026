@@ -20,10 +20,10 @@ type AmountT: Decimal(10,2) @(
 
 //Custom Structre
 aspect Amount{
-    CURRENCY: Currency;
-    Gross_AMount: AmountT; 
-    NET_AMOUNT: AmountT;
-    TAX_AMOUNT: AmountT;
+    CURRENCY: Currency@(title:'{i18n>CURRENCY}');
+    Gross_AMount: AmountT@(title:'{i18n>Gross_AMount}'); 
+    NET_AMOUNT: AmountT@(title:'{i18n>NET_AMOUNT}'); 
+    TAX_AMOUNT: AmountT@(title:'{i18n>TAX_AMOUNT}'); 
 }
 //@assert.format adds a validation constraint
 type PhoneNumber : String(30) @assert.format : '^\+?[0-9]{10,15}$';

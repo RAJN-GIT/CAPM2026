@@ -16,7 +16,7 @@ context master {
             PHONE_NUMBER  : common.PhoneNumber;
             FAX_NUMBER    : String(32);
             WEB_ADDRESS   : String(44);
-                        COMPANY_NAME  : String(250);
+                        COMPANY_NAME  : String(250)@(title:'{i18n>COMPANY_NAME}');
 
             BP_ID         : String(2);
                         ADDRESS_GUID  : Association to one address;
