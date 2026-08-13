@@ -35,7 +35,7 @@ context master {
             // Reverse Association
 
             BUILDING         : String(128);
-            COUNTRY          : String(44);
+            COUNTRY          : String(44)@(title:'{i18n>COUNTRY}');
             ADDRESS_TYPE     : String(44);
             VAL_START_DATE   : Date;
             VAL_END_DATE     : Date;
@@ -69,10 +69,10 @@ context master {
 
     entity product {
         key NODE_KEY       : common.Guid;
-            PRODUCT_ID     : String(28);
+            PRODUCT_ID     : String(28)@(TITLE:'{i18n>PRODUCT_ID}');
             TYPE_CODE      : String(2);
             CATEGORY       : localized String(32);
-            DESCRIPTION    : localized String(255);
+            DESCRIPTION    : localized String(255)@(title:'{i18n>DESCRIPTION}');
             SUPPLIER_GUID  : Association to master.businesspartner;
             TAX_TARIF_CODE : Integer;
             MEASURE_UNIT   : String(2);
@@ -90,7 +90,7 @@ context master {
 context transaction {
     entity purchaseorder : common.Amount {
         key NODE_KEY         : common.Guid;
-            PO_ID            : String(32);
+            PO_ID            : String(32) @(title : '{i18n>PO_ID}');
             //  ,PARTNER_GUID_NODE_KEY
             PARTNER_GUID     : Association to master.businesspartner;
             // CURRENCY_CODE    : common.AmountT;
@@ -98,8 +98,8 @@ context transaction {
             // NET_AMOUNT       : common.AmountT;
             // TAX_AMOUNT       : common.AmountT;
             LIFECYCLE_STATUS : String(1);
-            OVERALL_STATUS   : String(1);
-            NOTE             : String(100);
+            OVERALL_STATUS   : String(1)@(title:'{i18n>Overall Status}');
+            NOTE             : String(100)@(title:'{i18n>NOTE}');
             items            : Association to many poitems
                                    on items.PARENT_KEY = $self;
     };
