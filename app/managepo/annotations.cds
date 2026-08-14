@@ -32,7 +32,16 @@ annotate service.Purchaseorder with @(
             Value: OVERALL_STATUS,
         }
 
+git 
+    ],
+    UI.HeaderInfo:{
+        Type : 'Purchase order Type ',
+        TypeName: 'Purcahse Order Type name ',
+        TypeNamePlural : 'Purcahse Order Type name',
+        Title: {Value : PO_ID},
+        Description: {Value : PARTNER_GUID.COMPANY_NAME},
+        ImageUrl://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVpTvFcccP6fQq4xOjjAZ33oTURuJlfzW4ppvga1o5tA&s
 
-    ]
+    }
 
 );
