@@ -9,8 +9,8 @@ annotate service.Purchaseorder with @(
         Gross_AMount,
         OVERALL_STATUS
     ],
-    UI.LineItem       : [
 
+    UI.LineItem       : [
         {
             $Type: 'UI.DataField',
             Value: PO_ID,
@@ -28,20 +28,23 @@ annotate service.Purchaseorder with @(
             Value: Gross_AMount,
         },
         {
+            $type : 'UI.DataFieldForAction',
+            Value : 'CatalogueService.boost',
+            Label : 'boost',
+            Inline: true
+        },
+        {
             $Type: 'UI.DataField',
             Value: OVERALL_STATUS,
         }
-
-git 
     ],
-    UI.HeaderInfo:{
-        Type : 'Purchase order Type ',
-        TypeName: 'Purcahse Order Type name ',
-        TypeNamePlural : 'Purcahse Order Type name',
-        Title: {Value : PO_ID},
-        Description: {Value : PARTNER_GUID.COMPANY_NAME},
-        ImageUrl://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVpTvFcccP6fQq4xOjjAZ33oTURuJlfzW4ppvga1o5tA&s
 
-    }
+    UI.HeaderInfo     : {
+        Type          : 'Purchase order Type ',
+        TypeName      : 'Purcahse Order Type name ',
+        TypeNamePlural: 'Purcahse Order Type name',
+        Title         : {Value: PO_ID},
+        Description   : {Value: PARTNER_GUID.COMPANY_NAME},
+        ImageUrl      : '//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVpTvFcccP6fQq4xOjjAZ33oTURuJlfzW4ppvga1o5tA&s'    }
 
 );
