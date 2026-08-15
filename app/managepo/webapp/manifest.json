@@ -49,7 +49,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.f": {}
       }
     },
     "contentDensities": {
@@ -81,22 +82,37 @@
       "css": []
     },
     "routing": {
-      "config": {},
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
       "routes": [
         {
           "pattern": ":?query:",
           "name": "PurchaseorderList",
-          "target": "PurchaseorderList"
+          "target": [
+            "PurchaseorderList"
+          ]
         },
         {
           "pattern": "Purchaseorder({key}):?query:",
           "name": "PurchaseorderObjectPage",
-          "target": "PurchaseorderObjectPage"
+          "target": [
+            "PurchaseorderList",
+            "PurchaseorderObjectPage"
+          ]
         },
         {
           "pattern": "Purchaseorder({key})/items({key2}):?query:",
           "name": "PoitemObjectPage",
-          "target": "PoitemObjectPage"
+          "target": [
+            "PurchaseorderList",
+            "PurchaseorderObjectPage",
+            "PoitemObjectPage"
+          ]
         }
       ],
       "targets": {
@@ -123,7 +139,9 @@
                 }
               }
             }
-          }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
         },
         "PurchaseorderObjectPage": {
           "type": "Component",
@@ -141,7 +159,9 @@
                 }
               }
             }
-          }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/Purchaseorder({key})"
         },
         "PoitemObjectPage": {
           "type": "Component",
@@ -152,9 +172,17 @@
               "editableHeaderContent": false,
               "contextPath": "/Purchaseorder/items"
             }
-          }
+          },
+          "controlAggregation": "endColumnPages",
+          "contextPattern": "/Purchaseorder({key})/items({key2})"
         }
       }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
     }
   },
   "sap.fiori": {

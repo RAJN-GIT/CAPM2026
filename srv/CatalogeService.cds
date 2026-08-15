@@ -9,8 +9,7 @@ service CatalogeService @(path: 'CatalogeService') {
     entity Employeset      as projection on master.employees;
     entity Product         as projection on master.product;
     entity Businesspartner as projection on master.businesspartner;
-    entity Purchaseorder   as projection on transaction.purchaseorder
-
+    entity Purchaseorder @(odata.draft.enabled: true ) as projection on transaction.purchaseorder
         actions {
             action boost() returns Purchaseorder
 
