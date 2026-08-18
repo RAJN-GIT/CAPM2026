@@ -1,0 +1,10 @@
+VIEW CDSnmsp_CDSViews_ItemView AS SELECT
+  PARENT_KEY_1.PARTNER_GUID_NODE_KEY AS CustomerID,
+  PRODUCT_GUID_2.PRODUCT_ID AS ProductId,
+  poitems_0.PRODUCT_GUID_NODE_KEY AS NodeKey,
+  poitems_0.CURRENCY_code AS Currency_code,
+  poitems_0.Gross_AMount AS Gross_Amount,
+  poitems_0.NET_AMOUNT AS NetAmount,
+  poitems_0.TAX_AMOUNT AS TaxAmount,
+  PARENT_KEY_1.OVERALL_STATUS AS Status
+FROM ((mycap1_db_transaction_poitems AS poitems_0 LEFT JOIN mycap1_db_transaction_purchaseorder AS PARENT_KEY_1 ON poitems_0.PARENT_KEY_NODE_KEY = PARENT_KEY_1.NODE_KEY) LEFT JOIN mycap1_db_master_product AS PRODUCT_GUID_2 ON poitems_0.PRODUCT_GUID_NODE_KEY = PRODUCT_GUID_2.NODE_KEY)

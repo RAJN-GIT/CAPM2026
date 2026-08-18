@@ -50,17 +50,17 @@ annotate service.Purchaseorder with @(
 
     UI.Facets                  : [
         {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'General Information1',
+            Target: '@UI.FieldGroup#GeneralInfo2'
+        },
+        {
             $Type : 'UI.CollectionFacet',
             Label : 'General Informati on 1 ',
             Facets: [{
                 $Type : 'UI.ReferenceFacet',
                 Target: '@UI.Identification', 
             }, ],
-        },
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : 'General Information1',
-            Target: '@UI.FieldGroup#GeneralInfo2'
         },
         {
             $Type : 'UI.ReferenceFacet',

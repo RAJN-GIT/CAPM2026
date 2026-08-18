@@ -1,0 +1,18 @@
+COLUMN TABLE mycap1_db_master_employees (
+  ID NVARCHAR(36) NOT NULL,
+  nameFirst NVARCHAR(256),
+  nameMiddle NVARCHAR(256),
+  nameLast NVARCHAR(256),
+  nameInitials NVARCHAR(40),
+  sex NVARCHAR(1),
+  "LANGUAGE" NVARCHAR(1),
+  phoneNumber NVARCHAR(30),
+  email NVARCHAR(100),
+  loginName NVARCHAR(12),
+  Currency_code NVARCHAR(3),
+  salaryAmount DECIMAL(10, 2),
+  accountNumber NVARCHAR(16),
+  bankId NVARCHAR(8),
+  bankName NVARCHAR(64),
+  PRIMARY KEY(ID)
+)

@@ -1,0 +1,3 @@
+VIEW CDSService_ProductSet AS SELECT
+  ProductView_0.ProductId
+FROM CDSnmsp_CDSViews_ProductView AS ProductView_0

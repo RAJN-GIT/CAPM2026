@@ -1,0 +1,8 @@
+VIEW CDSnmsp_CDSViews_CProductValueView AS SELECT
+  ProductView_0.ProductId AS productId,
+  ProductView_0.Country AS Country,
+  ProductView_0.Price AS Price,
+  round(sum(ToItem_1.Gross_Amount), 2) AS TotalAmount,
+  ToItem_1.Currency_code AS currencyCode_code
+FROM (CDSnmsp_CDSViews_ProductView AS ProductView_0 LEFT JOIN CDSnmsp_CDSViews_ItemView AS ToItem_1 ON ToItem_1.ProductId = ProductView_0.ProductId)
+GROUP BY ProductView_0.ProductId, ToItem_1.Currency_code

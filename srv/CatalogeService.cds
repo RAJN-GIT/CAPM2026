@@ -4,7 +4,7 @@ using {
     mycap1.db.transaction
 } from '../db/database';
 
-service CatalogeService @(path: 'CatalogeService') {
+service CatalogeService @(path: 'CatalogeService', requires: 'authenticated-user') {
     // entity Employeset as projection on master.employees
     entity Employeset      as projection on master.employees;
     entity Product         as projection on master.product;

@@ -1,0 +1,4 @@
+VIEW CDSnmsp_CDSViews_ProductValueHelp AS SELECT
+  product_0.PRODUCT_ID AS "PRODUCT",
+  product_0.DESCRIPTION AS ProductDes
+FROM mycap1_db_master_product AS product_0

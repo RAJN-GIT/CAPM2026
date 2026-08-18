@@ -1,0 +1,10 @@
+VIEW CDSService_ItemSet AS SELECT
+  ItemView_0.CustomerID,
+  ItemView_0.ProductId,
+  ItemView_0.NodeKey,
+  ItemView_0.Currency_code,
+  ItemView_0.Gross_Amount,
+  ItemView_0.NetAmount,
+  ItemView_0.TaxAmount,
+  ItemView_0.Status
+FROM CDSnmsp_CDSViews_ItemView AS ItemView_0

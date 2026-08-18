@@ -1,0 +1,14 @@
+VIEW localized_CDSnmsp_CDSViews_POWorklist AS SELECT
+  purchaseorder_0.PO_ID AS PoId,
+  items_1.PO_ITEM_POS AS Purchaseitems,
+  PARTNER_GUID_3.BP_ID AS PurcahseFrom,
+  PARTNER_GUID_3.COMPANY_NAME AS CompanyName,
+  purchaseorder_0.Gross_AMount AS GrossAmount,
+  purchaseorder_0.TAX_AMOUNT AS TaxAmount,
+  purchaseorder_0.CURRENCY_code AS CURRENCY_code,
+  purchaseorder_0.OVERALL_STATUS AS OveralAllStatus,
+  PRODUCT_GUID_2.PRODUCT_ID AS ProductId,
+  PRODUCT_GUID_2.DESCRIPTION AS Description,
+  ADDRESS_GUID_4.CITY AS CITY,
+  ADDRESS_GUID_4.COUNTRY AS COUNTRY
+FROM ((((mycap1_db_transaction_purchaseorder AS purchaseorder_0 LEFT JOIN mycap1_db_transaction_poitems AS items_1 ON (items_1.PARENT_KEY_NODE_KEY = purchaseorder_0.NODE_KEY)) LEFT JOIN localized_mycap1_db_master_product AS PRODUCT_GUID_2 ON items_1.PRODUCT_GUID_NODE_KEY = PRODUCT_GUID_2.NODE_KEY) LEFT JOIN mycap1_db_master_businesspartner AS PARTNER_GUID_3 ON purchaseorder_0.PARTNER_GUID_NODE_KEY = PARTNER_GUID_3.NODE_KEY) LEFT JOIN mycap1_db_master_address AS ADDRESS_GUID_4 ON PARTNER_GUID_3.ADDRESS_GUID_NODE_KEY = ADDRESS_GUID_4.NODE_KEY)

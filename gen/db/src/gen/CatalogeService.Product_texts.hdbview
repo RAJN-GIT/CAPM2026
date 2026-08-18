@@ -1,0 +1,6 @@
+VIEW CatalogeService_Product_texts AS SELECT
+  texts_0.locale,
+  texts_0.NODE_KEY,
+  texts_0.CATEGORY,
+  texts_0.DESCRIPTION
+FROM mycap1_db_master_product_texts AS texts_0

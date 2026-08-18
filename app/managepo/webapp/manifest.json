@@ -157,6 +157,20 @@
                     "route": "PoitemObjectPage"
                   }
                 }
+              },
+              "content": {
+                "body": {
+                  "sections": {
+                    "FRAG1": {
+                      "template": "drajp.ui.managepo.ext.fragment.FRAG1",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "FieldGroup#GeneralInfo2"
+                      },
+                      "title": "Draj"
+                    }
+                  }
+                }
               }
             }
           },
