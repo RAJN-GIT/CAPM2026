@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.16.1",
-    "@sap/cds": "^9"
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
@@ -19,5 +20,30 @@
   ],
   "sapux": [
     "app/managepo"
-  ]
+  ],
+  "cds": {
+    "require": {
+      "auth": {
+        "[development]": {
+          "kind": "mocked",
+          "users": {
+            "anubhav": {
+              "password": "Welcome1"
+            },
+            "ananya": {
+              "password": "Welcome2"
+            }
+          }
+        },
+        "[Production]": {
+          "kind": "xsuaa"
+        }
+      }
+    },
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
+      }
+    }
+  }
 }
