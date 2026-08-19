@@ -46,8 +46,8 @@ context CDSViews {
 
     define view ItemView as
         select from Trans.poitems {
-            PARENT_KEY.PARTNER_GUID.NODE_KEY       as CustomerID,
-            PRODUCT_GUID.PRODUCT_ID   as ProductId,
+           key PARENT_KEY.PARTNER_GUID.NODE_KEY       as CustomerID,
+           key PRODUCT_GUID.PRODUCT_ID   as ProductId,
             PRODUCT_GUID.NODE_KEY     as NodeKey,
             CURRENCY                  as Currency,
             Gross_AMount              as Gross_Amount@(title:'{i18n>Gross_AMount}'),
@@ -81,7 +81,7 @@ define view ProductView as
 
 define view CProductValueView as
     select from ProductView {
-        ProductId       as productId,
+       key ProductId       as productId,
         Country         as Country,
         // round(sum(ToItem.Gross_Amount),2) as TotalAmount,
         // Product         as Product,
